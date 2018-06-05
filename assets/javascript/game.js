@@ -49,27 +49,36 @@ function playGame() {
     $("#randomNumber").text(randomNum);
 
     // random crystal values are generated
-    crystal_1 = [Math.floor(Math.random() * 12) + 1];
-    crystal_2 = [Math.floor(Math.random() * 12) + 1];
-    crystal_3 = [Math.floor(Math.random() * 12) + 1];
-    crystal_4 = [Math.floor(Math.random() * 12) + 1];
+    crystal_1 = Math.floor(Math.random() * 12) + 1;
+    crystal_2 = Math.floor(Math.random() * 12) + 1;
+    crystal_3 = Math.floor(Math.random() * 12) + 1;
+    crystal_4 = Math.floor(Math.random() * 12) + 1;
+    console.log(crystal_1);
+    console.log(crystal_2);
+    console.log(crystal_3);
+    console.log(crystal_4);
+}
 
     //crystal values are assigned to the buttons
     $("#crystal1").on("click", function() {
         totalScore = parseInt(totalScore) + parseInt(crystal_1);
         $("#totalScoreCount").text(totalScore);
+        checkNumbers();
     });
     $("#crystal2").on("click", function() {
         totalScore = parseInt(totalScore) + parseInt(crystal_2);
         $("#totalScoreCount").text(totalScore);
+        checkNumbers();
     });
     $("#crystal3").on("click", function() {
         totalScore = parseInt(totalScore) + parseInt(crystal_3);
         $("#totalScoreCount").text(totalScore);
+        checkNumbers();
     });
     $("#crystal4").on("click", function() {
         totalScore = parseInt(totalScore) + parseInt(crystal_4);
         $("#totalScoreCount").text(totalScore);
+        checkNumbers();
     });
 
     // We print the randomNum and random crystal values in console (for testing).
@@ -79,27 +88,24 @@ function playGame() {
     console.log(crystal_3);
     console.log(crystal_4);
 
-};
 
 // checkNumbers() function - It's where we will compare the randomNum to the totalScore
 function checkNumbers() {
-    document.onclick = function(event) {
-        if (randomNum < totalScore) {
+    if (randomNum < totalScore) {
         alert("Too much! You lose!");
         lossCounter++;
         $("#losses").text(lossCounter);
         playGame();
-        };
-        if (randomNum > totalScore) {
-            console.log("Keep going!");
-        }
-        else {
+    }
+    if (randomNum > totalScore) {
+        console.log("Keep going!");
+    }
+    else {
         alert("You win! Great job!");
         winCounter++;
         $("#wins").text(winCounter);
         playGame();
-        }; 
-    };
+    }
 };
 
 // MAIN PROCESS (THIS IS THE CODE THAT CONTROLS WHAT IS ACTUALLY RUN)
@@ -108,7 +114,7 @@ function checkNumbers() {
 // Starts the Game by running the startGame() function
 startGame();
 playGame();
-checkNumbers();
+//checkNumbers();
 
 
 });
