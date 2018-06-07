@@ -32,3 +32,10 @@ h1 {
 #totalScoreCount {
     font-size: 38px;
 }
+
+@media screen and (max-width: 594px) { 
+    button {
+        width: 20% !important;
+    }
+ }
+
