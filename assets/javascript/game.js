@@ -63,22 +63,22 @@ function playGame() {
     $("#crystal1").on("click", function() {
         totalScore = parseInt(totalScore) + parseInt(crystal_1);
         $("#totalScoreCount").text(totalScore);
-        checkNumbers();
+        setTimeout(checkNumbers, 500);
     });
     $("#crystal2").on("click", function() {
         totalScore = parseInt(totalScore) + parseInt(crystal_2);
         $("#totalScoreCount").text(totalScore);
-        checkNumbers();
+        setTimeout(checkNumbers, 500);
     });
     $("#crystal3").on("click", function() {
         totalScore = parseInt(totalScore) + parseInt(crystal_3);
         $("#totalScoreCount").text(totalScore);
-        checkNumbers();
+        setTimeout(checkNumbers, 500);
     });
     $("#crystal4").on("click", function() {
         totalScore = parseInt(totalScore) + parseInt(crystal_4);
         $("#totalScoreCount").text(totalScore);
-        checkNumbers();
+        setTimeout(checkNumbers, 500);
     });
 
     // We print the randomNum and random crystal values in console (for testing).
@@ -91,21 +91,21 @@ function playGame() {
 
 // checkNumbers() function - It's where we will compare the randomNum to the totalScore
 function checkNumbers() {
-    if (randomNum < totalScore) {
+        if (randomNum < totalScore) {
         alert("Too much! You lose!");
         lossCounter++;
         $("#losses").text(lossCounter);
         playGame();
-    }
-    if (randomNum > totalScore) {
+        }
+        if (randomNum > totalScore) {
         console.log("Keep going!");
-    }
-    else {
+        }
+        else {
         alert("You win! Great job!");
         winCounter++;
         $("#wins").text(winCounter);
         playGame();
-    }
+        }
 };
 
 // MAIN PROCESS (THIS IS THE CODE THAT CONTROLS WHAT IS ACTUALLY RUN)
